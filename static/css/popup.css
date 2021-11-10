@@ -17,6 +17,10 @@ html, body {
     padding: 20px 10px;
 }
 
+.session-item-card {
+    position: relative;
+}
+
 .session-item {
     background-color: #15cfba;
     border-radius: 8px;
@@ -27,6 +31,22 @@ html, body {
     color: white;
     margin-bottom: 10px;
     position: relative;
+    z-index: 3;
+}
+
+.session-item .title {
+    font-weight: bold;
+    font-size: 1.5em;
+    word-break: break-all;
+    white-space: nowrap;
+    max-width: 290px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.session-item .desc {
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 .session-item:hover {
@@ -49,14 +69,29 @@ html, body {
     left: -40px;
 }
 
-.session-item .options {
-    position: fixed;
+.options {
+    position: absolute;
     right: 10px;
+    padding-top: 10px;
+    top: 0px;
+    z-index: 1;
 }
 
-.session-item .options button {
-    position: absolute;
-    right: 0;
+.options button {
+    border-radius: 6px;
+    display: block;
+    padding: 6px;
+    border: none;
+    margin-top: 5px;
+    color: white;
+}
+
+.options button:nth-of-type(1) {
+    background-color: #ea644a;
+}
+
+.options button:nth-of-type(2) {
+    background-color: #15cfba;
 }
 
 .btn-block {

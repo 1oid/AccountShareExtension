@@ -12,7 +12,7 @@ chrome.contextMenus.create({
         let cookieText = ""
 
         chrome.cookies.getAll({
-            url: "https://www.baidu.com/"
+            url: tab.url
         }, function(cookies) {
             cookies.forEach(item => {
                 cookieText += item.name + "=" + item.value + ";"
@@ -20,7 +20,7 @@ chrome.contextMenus.create({
 
             console.log(cookieText)
             $.ajax({
-                url: "http://127.0.0.1:8000/set",
+                url: SERVER.addr + "/set",
                 method: "POST",
                 data: {
                     cookie: JSON.stringify(cookies),
@@ -33,6 +33,26 @@ chrome.contextMenus.create({
                     console.log(res)
                 }
             })
+        })
+    }
+})
+
+chrome.contextMenus.create({
+    title: "清除当前网站Cookie",
+    onclick: function (info, tab) {
+
+        chrome.cookies.getAll({
+            url: tab.url
+        }, function(cookies) {
+            cookies.forEach(item => {
+               chrome.cookies.remove({
+                   url: tab.url,
+                   name: item.name
+               }, t => {
+
+               })
+            })
+            alert("清除成功")
         })
     }
 })

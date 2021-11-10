@@ -8,6 +8,14 @@ from app.models import SessionConfigItem
 
 class SessionConfigItemView(View):
 
+    colors = [
+        '#99CCCC', '#FFCCCC', '#CC9966',
+        '#993333', '#CC0033', '#FF0033',
+        '#999933', '#FFCC99', '#FF9900',
+        '#FFFFCC', '#FF9933', '#FF6600',
+        '#CC6600', '#663300', '#FFFF00'
+    ]
+
     def get_object(self, url, user):
         try:
             return SessionConfigItem.objects.get(source_url=url, source_user=user)
