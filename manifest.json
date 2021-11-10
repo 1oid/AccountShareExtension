@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "账号共享Extension",
+  "version": "1.0",
+  "browser_action": {
+    "default_popup": "static/pages/popup.html"
+  },
+  "background": {
+    "page": "static/pages/background.html"
+  },
+  "permissions": [
+    "<all_urls>",
+    "contextMenus",
+    "cookies"
+  ]
+}
